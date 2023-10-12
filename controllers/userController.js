@@ -38,9 +38,9 @@ const getUser = async (req, res, next) => {
       user: user,
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(404).json({
       status: "fail",
-      error: error.message,
+      message: "Invalid email",
     });
   }
 };
