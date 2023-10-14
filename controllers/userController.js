@@ -54,7 +54,7 @@ const addUser = async (req, res, next) => {
       User: newUser,
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       status: "fail",
       error: error.message,
     });
