@@ -28,6 +28,14 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.post("save", function (error, doc, next) {
+  if (error.code === 11000) {
+    next(new Error("This email is already registered!"));
+  } else {
+    next(error);
+  }
+});
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;
